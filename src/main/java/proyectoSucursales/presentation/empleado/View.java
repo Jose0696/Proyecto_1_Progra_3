@@ -2,6 +2,7 @@ package proyectoSucursales.presentation.empleado;
 
 import proyectoSucursales.Application;
 import proyectoSucursales.logic.Empleado;
+import proyectoSucursales.logic.Sucursal;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -25,6 +26,8 @@ public class View implements Observer {
     private JLabel salBaseLb;
     private JTextField salBaseTx;
     private JLabel mapaPanel;
+    private JTextField sucursalTx;
+    private JLabel sucursalLb;
     private List<Point> pins;
 
     private int validSucursalValue;
@@ -100,6 +103,8 @@ public class View implements Observer {
                     if (detected==1){
                         createMapWithSelectedPin(detectedDataIndex);
                         selectedSucursalIndex=detectedDataIndex;
+                        sucursalTx.setForeground(Color.red);
+                        sucursalTx.setText(String.valueOf(model.getListaSucursales().get(selectedSucursalIndex).getReferencia()));
                         validSucursalValue=1;
                     }else{
                         createMap();
@@ -136,6 +141,9 @@ public class View implements Observer {
         this.nombreTx.setText(current.getNombre());
         this.telefonoTx.setText(current.getTelefono());
         this.salBaseTx.setText(String.valueOf(current.getSalarioBase()));
+        this.sucursalTx.setForeground(Color.red);
+        this.sucursalTx.setText(String.valueOf(current.getSucursal().getReferencia()));
+
         if (this.model.getModo()==Application.MODO_AGREGAR){
             createMap();
         }else if(this.model.getModo()==Application.MODO_EDITAR){
