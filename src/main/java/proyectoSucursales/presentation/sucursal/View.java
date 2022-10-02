@@ -29,10 +29,11 @@ public class View implements Observer{
     private JLabel nombreLb;
     private JLabel direccionLb;
     private JLabel zonajeLb;
+    Controller controller;
+    Model model;
     int xpoints;
     int ypoints;
     Polygon mapPoint; // https://docs.oracle.com/javase/7/docs/api/java/awt/Polygon.html
-
     public View() {
         agregarFld.addActionListener(new ActionListener() {
             @Override
@@ -61,6 +62,9 @@ public class View implements Observer{
                 }
             }
         });
+        agregarPoligonos();
+    }
+    public void agregarPoligonos(){
         mapPoint =new Polygon();
         mapPoint.addPoint(32,-11);
         mapPoint.addPoint(49 ,-16);
@@ -96,12 +100,10 @@ public class View implements Observer{
         mapPoint.addPoint(84,165);
         mapPoint.addPoint(141 ,211);
     }
+
     public JPanel getPanel() {
         return panel;
     }
-
-    Controller controller;
-    Model model;
 
     public void setController(Controller controller) {
         this.controller = controller;
@@ -138,7 +140,7 @@ public class View implements Observer{
             mapa.getScaledInstance(564,521, Image.SCALE_SMOOTH);
 
             BufferedImage result=new BufferedImage(564,521,BufferedImage.TYPE_INT_BGR);
-            Graphics g=result.getGraphics();
+            Graphics g = result.getGraphics();
             g.drawImage(mapa,0,0,564,521,null);
 
             xpoints =0;

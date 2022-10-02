@@ -75,7 +75,7 @@ public class View implements Observer{
                 int detected=0;
                 String detectedData="";
                 for(int i = 0; i<model.getListaSucursales().size(); i++){
-                    rangePin=new Polygon();
+                    rangePin = new Polygon();
                     rangePin.addPoint(model.getListaSucursales().get(i).getCoordenadaX()-1,model.getListaSucursales().get(i).getCoordenadaY()+14);
                     rangePin.addPoint(model.getListaSucursales().get(i).getCoordenadaX()-7,model.getListaSucursales().get(i).getCoordenadaY()+3);
                     rangePin.addPoint(model.getListaSucursales().get(i).getCoordenadaX()-10,model.getListaSucursales().get(i).getCoordenadaY()-5);
