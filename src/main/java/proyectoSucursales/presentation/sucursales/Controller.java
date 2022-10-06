@@ -17,6 +17,7 @@ import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
+import java.time.LocalDate;
 
 import javax.imageio.ImageIO;
 import java.util.List;
@@ -94,6 +95,8 @@ public class Controller {
         java.awt.Image logo;
         logo = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../icons/logo.jpg")));
 
+        LocalDate todaysDate = LocalDate.now();
+
         Document document = new Document(pdf);
         document.setMargins(20, 20, 20, 20);
 
@@ -101,6 +104,8 @@ public class Controller {
         header.setWidth(400);
         header.setHorizontalAlignment(HorizontalAlignment.CENTER);
         header.addCell(getCell(new Paragraph("Sistema Integrado SISE").setFont(font).setBold().setFontSize(20f), TextAlignment.CENTER,false));
+        header.addCell(getCell(new Paragraph("\nReporte Sucursales").setFont(font).setBold().setFontSize(16f), TextAlignment.CENTER,false));
+        header.addCell(getCell(new Paragraph("\nFecha: "+ todaysDate).setFont(font).setBold().setFontSize(12f), TextAlignment.CENTER,false));
         header.addCell(getCell(new Image(ImageDataFactory.create(logo,null)), HorizontalAlignment.CENTER,false));
         document.add(header);
 
