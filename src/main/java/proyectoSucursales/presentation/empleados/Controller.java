@@ -107,7 +107,7 @@ public class Controller {
         header.setWidth(600);
         header.setHorizontalAlignment(HorizontalAlignment.CENTER);
         header.addCell(getCell(new Paragraph("Sistema Integrado SISE").setFont(font).setBold().setFontSize(20f), TextAlignment.CENTER, false));
-        header.addCell(getCell(new Paragraph("\nReporte Sucursales").setFont(font).setBold().setFontSize(16f), TextAlignment.CENTER,false));
+        header.addCell(getCell(new Paragraph("\nReporte Empleados").setFont(font).setBold().setFontSize(16f), TextAlignment.CENTER,false));
         header.addCell(getCell(new Paragraph("\nFecha: "+ todaysDate).setFont(font).setBold().setFontSize(12f), TextAlignment.CENTER,false));
         header.addCell(getCell(new Image(ImageDataFactory.create(logo, null)), HorizontalAlignment.CENTER, false));
         document.add(header);
